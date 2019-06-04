@@ -21,7 +21,7 @@ const styles = theme => ({
 
 const validationSchema = Yup.object({
   name: Yup.number("Enter a name").required("Name is required"),
-  email: Yup.string("Enter your email")
+    email: Yup.string("Enter your email")
     .email("Enter a valid email")
     .required("Email is required"),
     password: Yup.string("")
