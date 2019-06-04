@@ -15,11 +15,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <Basic /> 
-        <BasicExample />
         <NestedSchema />
-       
-        </div>
+      </div>
     );
   }
 }

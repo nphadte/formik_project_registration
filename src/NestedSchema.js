@@ -3,15 +3,21 @@ import { Formik, Field, Form, FieldArray, ErrorMessage } from "formik";
 import moment from "moment";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { optionalCallExpression } from "@babel/types";
 
 const dateFormat = "YYYY/MM/DD";
 const currentDate = new Date().toISOString().substring(0, 10);
+
+var  options = "<option value='red'>Red</option><option value='green'>Green</option><option value='blue'>Blue</option>";
+  
 
 const NestedSchema = () => (
   <div>
     <h1>Nested Schema</h1>
     <Formik
       initialValues={{
+        userId: "",
+        company: "",
         projectdate: "",
         projectname: "",
         tileinstalldate: "",
@@ -23,27 +29,57 @@ const NestedSchema = () => (
         productspec: [
           {
             product_desc: " ",
-            item_code: ""
+            item_code: "",
+            brandname: "",
+            qty: "",
+            submitteddate: "",
+            directimport: "",
+            torontoimport: ""
           },
           {
             product_desc: " ",
-            item_code: ""
+            item_code: "",
+            brandname: "",
+            qty: "",
+            submitteddate: "",
+            directimport: "",
+            torontoimport: ""
           },
           {
             product_desc: " ",
-            item_code: ""
+            item_code: "",
+            brandname: "",
+            qty: "",
+            submitteddate: "",
+            directimport: "",
+            torontoimport: ""
           },
           {
             product_desc: " ",
-            item_code: ""
+            item_code: "",
+            brandname: "",
+            qty: "",
+            submitteddate: "",
+            directimport: "",
+            torontoimport: ""
           },
           {
             product_desc: " ",
-            item_code: ""
+            item_code: "",
+            brandname: "",
+            qty: "",
+            submitteddate: "",
+            directimport: "",
+            torontoimport: ""
           },
           {
             product_desc: " ",
-            item_code: ""
+            item_code: "",
+            brandname: "",
+            qty: "",
+            submitteddate: "",
+            directimport: "",
+            torontoimport: ""
           }
         ]
       }}
@@ -62,7 +98,11 @@ const NestedSchema = () => (
       }) => (
         <Form onSubmit={handleSubmit}>
           <Field type="date" name="projectdate" />
-          <Field type="text" name="projectname" />
+          <Field component="select" name="projectname">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+          </Field>
           <Field type="email" name="email" />
           {errors.email && touched.email && <div>{errors.email}</div>}
           <Field type="date" name="tileinstalldate" />
@@ -87,8 +127,20 @@ const NestedSchema = () => (
               <div>
                 {values.productspec.map((product, index) => (
                   <div key={index}>
-                    <Field name={`productspec.${index}.product_desc`} />
+                    <Field
+                      component="select"
+                      name={`productspec.${index}.product_desc`}
+                    >
+                      <option value="red">Red</option>
+                      <option value="green">Green</option>
+                      <option value="blue">Blue</option>
+                    </Field>
                     <Field name={`productspec.${index}.item_code`} />
+                    <Field name={`productspec.${index}.brandname`} />
+                    <Field name={`productspec.${index}.qty`} />
+                    <Field name={`productspec.${index}.submitteddate`} />
+                    <Field name={`productspec.${index}.directimport`} />
+                    <Field name={`productspec.${index}.torontoimport`} />
                   </div>
                 ))}
               </div>
