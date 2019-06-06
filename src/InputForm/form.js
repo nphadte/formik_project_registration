@@ -27,7 +27,6 @@ export const Form = props => {
         label="Name"
         helperText={touched.name ? errors.name : ""}
         error={touched.name && Boolean(errors.name)}
-        label="Name"
         value={name}
         onChange={change.bind(null, "name")}
       />

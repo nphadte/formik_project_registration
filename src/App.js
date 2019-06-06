@@ -10,13 +10,14 @@ import Basic from "./Basic";
 import BasicExample from "./BasicExample";
 import NestedSchema from "./NestedSchema";
 import FriendList from "./FriendList";
+import NewProject from "./NewProject";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <NestedSchema />
-      </div>
+         </div>
     );
   }
 }

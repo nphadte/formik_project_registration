@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Formik, Field, FieldArray } from "formik";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./form";
-import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup";
 
 const styles = theme => ({
@@ -21,10 +20,10 @@ const styles = theme => ({
 
 const validationSchema = Yup.object({
   name: Yup.number("Enter a name").required("Name is required"),
-    email: Yup.string("Enter your email")
+  email: Yup.string("Enter your email")
     .email("Enter a valid email")
     .required("Email is required"),
-    password: Yup.string("")
+  password: Yup.string("")
     .min(8, "Password must contain at least 8 characters")
     .required("Enter your password"),
   confirmPassword: Yup.string("Enter your password")
@@ -47,21 +46,17 @@ class ProjectForm extends Component {
       password: ""
     };
     return (
-      <React.Fragment>
-        <div className={classes.container}>
-          <Paper elevation={1} className={classes.paper}>
-            <h1>Product Spec</h1>
-            <Formik
-              render={props => <Form {...props} />}
-              initialValues={values}
-              validationSchema={validationSchema}
-              onSubmit={values => {
-                console.log(values);
-              }}
-            />
-          </Paper>
-        </div>
-      </React.Fragment>
+      <div className={classes.container}>
+        <h1>Product Spec</h1>
+        <Formik
+          render={props => <Form {...props} />}
+          initialValues={values}
+          validationSchema={validationSchema}
+          onSubmit={values => {
+            console.log(values);
+          }}
+        />
+      </div>
     );
   }
 }
